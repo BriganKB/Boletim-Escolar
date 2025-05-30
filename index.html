@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,22 +7,44 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div id="background-squares"></div>
-
-    <section class="hero">
-        <div class="logo">Controle de Notas</div>
-        <button id="btn-inserir-nome" class="btn-hero">Inserir Nome</button>
-    </section>
-
     <div id="modal-nome" class="modal">
         <div class="modal-content">
             <h2>Bem-vindo ao Controle de Notas</h2>
             <p>Por favor, insira seu nome:</p>
-            <input type="text" id="input-nome" placeholder="Seu nome" required>
-            <div class="modal-buttons">
-                <button id="btn-salvar-nome" class="btn-modal">Salvar</button>
-                <button id="btn-cancelar-nome" class="btn-modal btn-cancelar">Cancelar</button>
-            </div>
+            <input type="text" id="input-nome" placeholder="Seu nome">
+            <button id="btn-salvar-nome" class="btn-modal">Salvar</button>
+            <button class="btn-modal cancel" onclick="document.getElementById('modal-nome').style.display='none'">Cancelar</button>
+        </div>
+    </div>
+
+    <div id="modal-folder" class="modal">
+        <div class="modal-content">
+            <h2>Criar Nova Pasta</h2>
+            <p>Insira o nome da pasta:</p>
+            <input type="text" id="input-folder" placeholder="Nome da pasta">
+            <button id="btn-salvar-folder" class="btn-modal">Salvar</button>
+            <button class="btn-modal cancel" onclick="document.getElementById('modal-folder').style.display='none'">Cancelar</button>
+        </div>
+    </div>
+
+    <div id="modal-evaluation" class="modal">
+        <div class="modal-content">
+            <h2>Agendar Avaliação</h2>
+            <p>Insira os detalhes da avaliação:</p>
+            <input type="text" id="input-evaluation-name" placeholder="Nome da avaliação">
+            <input type="date" id="input-evaluation-date">
+            <button id="btn-salvar-evaluation" class="btn-modal">Salvar</button>
+            <button class="btn-modal cancel" onclick="document.getElementById('modal-evaluation').style.display='none'">Cancelar</button>
+        </div>
+    </div>
+
+    <div id="modal-reminder" class="modal">
+        <div class="modal-content">
+            <h2>Adicionar Lembrete</h2>
+            <p>Insira o texto do lembrete:</p>
+            <input type="text" id="input-reminder" placeholder="Seu lembrete">
+            <button id="btn-salvar-reminder" class="btn-modal">Salvar</button>
+            <button class="btn-modal cancel" onclick="document.getElementById('modal-reminder').style.display='none'">Cancelar</button>
         </div>
     </div>
 
@@ -31,45 +53,51 @@
         <ul class="navbar-links">
             <li><a href="#form-notas">Adicionar Notas</a></li>
             <li><a href="#tabela-notas">Ver Notas</a></li>
+            <li><a href="#calendar">Calendário</a></li>
+            <li><a href="#reminders">Lembretes</a></li>
             <li><a href="#" id="limpar-dados">Limpar Dados</a></li>
+            <li><a href="#" id="btn-inserir-nome">Inserir Nome</a></li>
         </ul>
     </nav>
 
+    <section class="hero">
+        <div id="background-squares"></div>
+        <h1 class="logo">Controle de Notas</h1>
+        <button class="btn-hero" onclick="document.getElementById('form-notas').scrollIntoView({ behavior: 'smooth' })">Adicionar Notas</button>
+    </section>
+
     <div class="container">
         <h1>Controle de Notas <span id="nome-usuario"></span></h1>
-        
+        <div class="folder-controls">
+            <select id="folder-select"></select>
+            <button id="btn-create-folder" class="btn-folder">Criar Pasta</button>
+            <button id="btn-schedule-evaluation" class="btn-schedule">Agendar Avaliação</button>
+            <button id="btn-reminder" class="btn-reminder">Adicionar Lembrete</button>
+        </div>
         <form id="form-notas">
-            <div class="form-group">
+            <div>
                 <label for="materia">Matéria:</label>
-                <input type="text" id="materia" placeholder="Ex: Matemática" required>
-                <div class="feedback-error" id="feedback-materia"></div>
+                <input type="text" id="materia" placeholder="Nome da matéria" required>
             </div>
-            
-            <div class="form-group">
+            <div>
                 <label for="p1">Prova 1 (0-10):</label>
-                <input type="number" id="p1" min="0" max="10" step="0.1" required>
-                <div class="feedback-error" id="feedback-p1"></div>
+                <input type="number" id="p1" step="0.1" min="0" max="10" placeholder="Nota P1" required>
             </div>
-            
-            <div class="form-group">
+            <div>
                 <label for="p2">Prova 2 (0-10):</label>
-                <input type="number" id="p2" min="0" max="10" step="0.1" required>
-                <div class="feedback-error" id="feedback-p2"></div>
+                <input type="number" id="p2" step="0.1" min="0" max="10" placeholder="Nota P2" required>
             </div>
-            
-            <div class="form-group">
+            <div>
                 <label for="sub">Substitutiva (0-10, opcional):</label>
-                <input type="number" id="sub" min="0" max="10" step="0.1">
+                <input type="number" id="sub" step="0.1" min="0" max="10" placeholder="Nota Sub">
             </div>
-            
-            <div class="form-group">
+            <div>
                 <label for="af">Avaliação Final (0-10, opcional):</label>
-                <input type="number" id="af" min="0" max="10" step="0.1">
+                <input type="number" id="af" step="0.1" min="0" max="10" placeholder="Nota AF">
             </div>
-            
-            <button type="submit" id="btn-calcular" class="btn-submit">Calcular Média</button>
+            <button type="submit" id="btn-calcular">Calcular Média</button>
         </form>
-        
+
         <table id="tabela-notas">
             <thead>
                 <tr>
@@ -85,6 +113,22 @@
             </thead>
             <tbody id="corpo-tabela"></tbody>
         </table>
+
+        <div id="calendar">
+            <h2>Calendário de Avaliações</h2>
+            <div class="calendar-controls">
+                <button id="btn-prev-month" class="btn-modal">←</button>
+                <span id="calendar-month"></span>
+                <button id="btn-next-month" class="btn-modal">→</button>
+            </div>
+            <div class="calendar-grid" id="calendar-grid"></div>
+            <ul id="calendar-list"></ul>
+        </div>
+
+        <div id="reminders">
+            <h2>Lembretes</h2>
+            <ul id="reminder-list"></ul>
+        </div>
     </div>
 
     <script src="script.js"></script>
