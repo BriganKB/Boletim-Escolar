@@ -59,7 +59,7 @@ if (typeof window !== 'undefined' && typeof document !== 'undefined') {
         // Exibe o nome do usuário
         const nomeUsuario = localStorage.getItem('nomeUsuario');
         if (nomeUsuario) {
-            nomeUsuarioSpan.textContent = `de ${nomeUsuario}`;
+            nomeUsuarioSpan.textContent = ` ${nomeUsuario}`;
         } else {
             modalNome.style.display = 'flex';
             inputNome.focus();

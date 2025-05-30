@@ -19,8 +19,8 @@ body {
 .hero {
     text-align: center;
     padding: 80px 24px;
-    background: linear-gradient(135deg, #1E3A8A 0%, #1F2937 100%);
-    color: #77b4f1;
+    background: linear-gradient(135deg, #374151 0%, #48556a#345cc9 100%);
+    color: #374151;
     border-radius: 16px;
     margin-bottom: 40px;
     min-height: 85vh;
@@ -179,7 +179,7 @@ body {
 }
 
 .navbar {
-    background-color: #345cc9;
+    background-color: #48556a#345cc9;
     padding: 16px 32px;
     display: flex;
     justify-content: space-between;
@@ -192,7 +192,7 @@ body {
 }
 
 .navbar-brand {
-    color: #F9FAFB;
+    color: #10B981;
     font-size: 1.75rem;
     font-weight: 700;
 }
@@ -503,7 +503,7 @@ tr:hover {
 }
 
 #reminders h2 {
-    color: #F9FAFB;
+    color: #ffffff;
     font-size: 1.5rem;
     margin-bottom: 16px;
 }
