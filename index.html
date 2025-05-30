@@ -19,7 +19,10 @@
             <h2>Bem-vindo ao Controle de Notas</h2>
             <p>Por favor, insira seu nome:</p>
             <input type="text" id="input-nome" placeholder="Seu nome" required>
-            <button id="btn-salvar-nome" class="btn-modal">Salvar</button>
+            <div class="modal-buttons">
+                <button id="btn-salvar-nome" class="btn-modal">Salvar</button>
+                <button id="btn-cancelar-nome" class="btn-modal btn-cancelar">Cancelar</button>
+            </div>
         </div>
     </div>
 
@@ -36,22 +39,35 @@
         <h1>Controle de Notas <span id="nome-usuario"></span></h1>
         
         <form id="form-notas">
-            <label for="materia">Matéria:</label>
-            <input type="text" id="materia" required>
+            <div class="form-group">
+                <label for="materia">Matéria:</label>
+                <input type="text" id="materia" placeholder="Ex: Matemática" required>
+                <div class="feedback-error" id="feedback-materia"></div>
+            </div>
             
-            <label for="p1">Prova 1 (0-10):</label>
-            <input type="number" id="p1" min="0" max="10" step="0.1" required>
+            <div class="form-group">
+                <label for="p1">Prova 1 (0-10):</label>
+                <input type="number" id="p1" min="0" max="10" step="0.1" required>
+                <div class="feedback-error" id="feedback-p1"></div>
+            </div>
             
-            <label for="p2">Prova 2 (0-10):</label>
-            <input type="number" id="p2" min="0" max="10" step="0.1" required>
+            <div class="form-group">
+                <label for="p2">Prova 2 (0-10):</label>
+                <input type="number" id="p2" min="0" max="10" step="0.1" required>
+                <div class="feedback-error" id="feedback-p2"></div>
+            </div>
             
-            <label for="sub">Substitutiva (0-10, opcional):</label>
-            <input type="number" id="sub" min="0" max="10" step="0.1">
+            <div class="form-group">
+                <label for="sub">Substitutiva (0-10, opcional):</label>
+                <input type="number" id="sub" min="0" max="10" step="0.1">
+            </div>
             
-            <label for="af">Avaliação Final (0-10, opcional):</label>
-            <input type="number" id="af" min="0" max="10" step="0.1">
+            <div class="form-group">
+                <label for="af">Avaliação Final (0-10, opcional):</label>
+                <input type="number" id="af" min="0" max="10" step="0.1">
+            </div>
             
-            <button type="submit" id="btn-calcular">Calcular Média</button>
+            <button type="submit" id="btn-calcular" class="btn-submit">Calcular Média</button>
         </form>
         
         <table id="tabela-notas">
