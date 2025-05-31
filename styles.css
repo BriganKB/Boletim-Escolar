@@ -9,7 +9,7 @@
 body {
     font-family: 'Inter', sans-serif;
     background-color: #222d44;
-    color: #006cd894;
+    color: #ffffff;
     line-height: 1.6;
     padding: 32px;
     position: relative;
@@ -454,7 +454,7 @@ tr:hover {
 .calendar-day {
     padding: 12px;
     border-radius: 8px;
-    background: #ffffff;
+    background: #40526e;
     cursor: pointer;
     transition: all 0.3s ease;
 }

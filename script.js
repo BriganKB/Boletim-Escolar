@@ -233,7 +233,7 @@ if (typeof window !== 'undefined' && typeof document !== 'undefined') {
             const nome = inputNome.value.trim();
             if (nome) {
                 localStorage.setItem('nomeUsuario', nome);
-                nomeUsuarioSpan.textContent = `de ${nome}`;
+                nomeUsuarioSpan.textContent = ` ${nome}`;
                 modalNome.style.display = 'none';
                 inputNome.value = '';
                 document.getElementById('form-notas').scrollIntoView({ behavior: 'smooth' });
